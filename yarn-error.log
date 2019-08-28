@@ -1,0 +1,56 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.16.0/libexec/bin/yarn.js
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.16.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: EINVAL: invalid argument, unlink '/Users/apple/Desktop/test_project/test_react_router/node_modules/@typescript-eslint/typescript-estree/node_modules/semver'
+
+npm manifest: 
+  {
+    "name": "init",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "react": "^16.9.0",
+      "react-dom": "^16.9.0",
+      "react-scripts": "3.1.0"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+      "extends": "react-app"
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

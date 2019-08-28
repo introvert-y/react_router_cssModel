@@ -1,0 +1,7 @@
+.red_color {
+  color: red;
+}
+
+:global(.title) {
+  background-color: green;
+}
