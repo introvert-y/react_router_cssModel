@@ -1,6 +1,8 @@
 import React from "react";
 import { HashRouter ,BrowserRouter, Route, Link,Switch } from "react-router-dom";
-import Home from '../components/App.js'
+import Home from '../page/CssTest/index'
+import Counter from '../page/Counter/index'
+
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/hasChildren" component={HasChildren} />
+            <Route path="/counter" component={Counter} />
         </div>
         
       </div>
@@ -67,6 +70,9 @@ function Header() {
       </li>
       <li>
         <Link to="/hasChildren">HasChildren</Link>
+      </li>
+      <li>
+        <Link to="/counter">Counter</Link>
       </li>
     </ul>
   );
