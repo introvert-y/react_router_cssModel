@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Counter from './UI/index';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('mapStateToProps', state.count,ownProps);
+  // console.log('mapStateToProps', state.count,ownProps);
   return {
     value: state.count
   }
