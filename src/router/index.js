@@ -1,3 +1,5 @@
+// 如何实现一个react-router路由拦截（导航守卫） https://juejin.im/post/5c31aede6fb9a04a0d570107
+
 import React from "react";
 import { BrowserRouter, Route, Link,Switch } from "react-router-dom";
 import Home from '../page/CssTest/index'
