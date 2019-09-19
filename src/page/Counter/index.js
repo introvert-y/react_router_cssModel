@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
-import Counter from './UI/index';
+import React from 'react';
 
-const mapStateToProps = (state, ownProps) => {
-  // console.log('mapStateToProps', state.count,ownProps);
+const mapStateToProps = (state) => {
   return {
     value: state.count
   }
@@ -21,7 +20,14 @@ const mapDispatchToProps = {
   },
 }
 
-// 容器组件
-// const VisibleCounter = connect(mapStateToProps, mapDispatchToProps)(Counter)
+function Page({ value, onIncreaseClick, onDecreaseClick }) {
+  return (
+    <div>
+      <h1>{value}</h1>
+      <button onClick={onIncreaseClick}>+</button>
+      <button onClick={onDecreaseClick}>-</button>
+    </div>
+  )
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Page);

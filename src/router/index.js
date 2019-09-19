@@ -1,34 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { HashRouter ,BrowserRouter, Route, Link,Switch } from "react-router-dom";
 import Home from '../page/CssTest/index'
 import Counter from '../page/Counter/index'
-import { connect } from 'react-redux';
+import Single from '../page/Single/index'
 
 
-function mapStateToProps(state) {
-  return {
-    num: state.count,
-  };
-}
-function App({num}) {
-  const [count, setCount] = useState(0);
-  console.log('222222', num);
-  useEffect(() => {
-    console.log('111111111' , num);
-  }, [num]);
+
+function App() {
+  // const [count, setCount] = useState(0);
+ 
   return (
     <HashRouter>
       <div>
         <Header />
         <div>
-          test---
-          {num}
-        </div>
-        <div>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/hasChildren" component={HasChildren} />
             <Route path="/counter" component={Counter} />
+            <Route path="/single" component={Single} />
         </div>
         
       </div>
@@ -89,8 +79,11 @@ function Header() {
       <li>
         <Link to="/counter">Counter</Link>
       </li>
+      <li>
+        <Link to="/single">single</Link>
+      </li>
     </ul>
   );
 }
 
-export default connect(mapStateToProps)(App);
+export default App;
