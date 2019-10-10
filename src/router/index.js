@@ -8,6 +8,7 @@ import Home from '../page/CssTest/index'
 import Counter from '../page/Counter/index'
 import Single from '../page/Single/index'
 import Optimize from '../page/Optimize/index'
+import EchartBox from '../page/echartBox/index'
 
 function Header() {
   return (
@@ -41,6 +42,9 @@ function Header() {
       <li>
         <Link to="/optimize">性能优化之shouldComponentUpdate,及第三方动画库做简单动画</Link>
       </li>
+      <li>
+        <Link to="/echart">echart的简单应用</Link>
+      </li>
     </ul>
   );
 }
@@ -61,6 +65,7 @@ function App() {
             <Route path="/counter" component={Counter} />
             <Route path="/single" component={Single} />
             <Route path="/optimize" component={Optimize} />
+            <Route path="/echart" component={EchartBox} />
         </Switch>
       </div>
     </BrowserRouter>
