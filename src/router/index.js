@@ -9,6 +9,7 @@ import Counter from '../page/Counter/index'
 import Single from '../page/Single/index'
 import Optimize from '../page/Optimize/index'
 import EchartBox from '../page/echartBox/index'
+import ChinaMap from '../page/chinaMap/index'
 
 function Header() {
   return (
@@ -45,6 +46,9 @@ function Header() {
       <li>
         <Link to="/echart">echart的简单应用</Link>
       </li>
+      <li>
+        <Link to="/map">echart实现中国地图</Link>
+      </li>
     </ul>
   );
 }
@@ -66,6 +70,7 @@ function App() {
             <Route path="/single" component={Single} />
             <Route path="/optimize" component={Optimize} />
             <Route path="/echart" component={EchartBox} />
+            <Route path="/map" component={ChinaMap} />
         </Switch>
       </div>
     </BrowserRouter>
