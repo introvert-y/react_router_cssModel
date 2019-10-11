@@ -12,6 +12,7 @@ import EchartBox from '../page/echartBox/index'
 import ChinaMap from '../page/chinaMap/index'
 import UseMemo from '../page/useMemo/index'
 import UseCallback from '../page/useCallback/index'
+import Memo from '../page/memoParent/index'
 
 function Header() {
   return (
@@ -44,6 +45,9 @@ function Header() {
       </li>
       <li>
         <Link to="/optimize">性能优化之shouldComponentUpdate,及第三方动画库做简单动画</Link>
+      </li>
+      <li>
+        <Link to="/memo">性能优化之memo，相当于函数组件里的shouldComponentUpdate</Link>
       </li>
       <li>
         <Link to="/echart">echart的简单应用</Link>
@@ -81,6 +85,7 @@ function App() {
             <Route path="/map" component={ChinaMap} />
             <Route path="/useMemo" component={UseMemo} />
             <Route path="/useCallback" component={UseCallback} />
+            <Route path="/memo" component={Memo} />
         </Switch>
       </div>
     </BrowserRouter>
