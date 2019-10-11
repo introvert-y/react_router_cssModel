@@ -1,5 +1,5 @@
 import React, {
-  useCallback, useRef,
+  useRef, useEffect,
 } from 'react';
 import echarts from '../../echarts';
 
@@ -154,26 +154,20 @@ function initChart(inst, opt = {}) {
 
 function DataChart() {
   const myChart = useRef(null);
-  const chartDOMRef = useCallback((el) => {
-    if (el) {
-      if (!myChart.current) {
-        myChart.current = echarts.init(el);
-      }
-      initChart(myChart.current, {
-        notMerge: true,
-      });
-    } else {
-      if (!myChart.current) {
-        return;
-      }
+  useEffect(() => {
+    myChart.current = echarts.init(myChart.current);
+    initChart(myChart.current, {
+      notMerge: true,
+    });
+    return () => {
+      // console.log('销毁时');
       myChart.current.dispose();
-    }
+    };
   }, []);
-
   return (
     <>
       <div style={{ marginLeft: 50 }}>series数组里的对象可以有formatter</div>
-      <div ref={chartDOMRef} style={{ height: 300, backgroundColor: 'lightpink' }} />
+      <div ref={myChart} style={{ height: 300, backgroundColor: 'lightpink' }} />
     </>
   );
 }

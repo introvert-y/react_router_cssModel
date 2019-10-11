@@ -10,6 +10,8 @@ import Single from '../page/Single/index'
 import Optimize from '../page/Optimize/index'
 import EchartBox from '../page/echartBox/index'
 import ChinaMap from '../page/chinaMap/index'
+import UseMemo from '../page/useMemo/index'
+import UseCallback from '../page/useCallback/index'
 
 function Header() {
   return (
@@ -49,6 +51,12 @@ function Header() {
       <li>
         <Link to="/map">echart实现中国地图</Link>
       </li>
+      <li>
+        <Link to="/useMemo">hook之useMemo</Link>
+      </li>
+      <li>
+        <Link to="/useCallback">hook之useCallback</Link>
+      </li>
     </ul>
   );
 }
@@ -71,6 +79,8 @@ function App() {
             <Route path="/optimize" component={Optimize} />
             <Route path="/echart" component={EchartBox} />
             <Route path="/map" component={ChinaMap} />
+            <Route path="/useMemo" component={UseMemo} />
+            <Route path="/useCallback" component={UseCallback} />
         </Switch>
       </div>
     </BrowserRouter>

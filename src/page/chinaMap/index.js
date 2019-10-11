@@ -1,5 +1,5 @@
 import React, {
-  useCallback, useRef,
+  useEffect, useRef,
 } from 'react';
 import echarts from '../../echarts';
 
@@ -87,7 +87,7 @@ function initChart(inst, opt = {}) {
           emphasis: {  
               show: false  
           }  
-        },  
+        },
         data: mydata.map(item => ({
           name: replaceProvinceName(item.name),
           value: item.value,
@@ -104,25 +104,35 @@ inst.setOption(optionMap, opt);
 
 function DataChart() {
   const myChart = useRef(null);
-  const chartDOMRef = useCallback((el) => {
-    if (el) {
-      if (!myChart.current) {
-        myChart.current = echarts.init(el);
-      }
-      initChart(myChart.current, {
-        notMerge: true,
-      });
-    } else {
-      if (!myChart.current) {
-        return;
-      }
+  useEffect(() => {
+    myChart.current = echarts.init(myChart.current);
+    initChart(myChart.current, {
+      notMerge: true,
+    });
+    return () => {
+      // console.log('销毁时');
       myChart.current.dispose();
-    }
+    };
   }, []);
+  // const chartDOMRef = useCallback((el) => {
+  //   if (el) {
+  //     if (!myChart.current) {
+  //       myChart.current = echarts.init(el);
+  //     }
+  //     initChart(myChart.current, {
+  //       notMerge: true,
+  //     });
+  //   } else {
+  //     if (!myChart.current) {
+  //       return;
+  //     }
+  //     myChart.current.dispose();
+  //   }
+  // }, []);
 
   return (
     <>
-      <div ref={chartDOMRef} style={{ height: 300, backgroundColor: '#dedede' }} />
+      <div ref={myChart} style={{ height: 300, backgroundColor: '#dedede' }} />
     </>
   );
 }
