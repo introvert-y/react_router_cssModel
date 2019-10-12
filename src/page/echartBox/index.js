@@ -155,6 +155,7 @@ function initChart(inst, opt = {}) {
 function DataChart() {
   const myChart = useRef(null);
   useEffect(() => {
+    console.log('渲染了');
     myChart.current = echarts.init(myChart.current);
     initChart(myChart.current, {
       notMerge: true,
@@ -164,6 +165,7 @@ function DataChart() {
       myChart.current.dispose();
     };
   }, []);
+  
   return (
     <>
       <div style={{ marginLeft: 50 }}>series数组里的对象可以有formatter</div>

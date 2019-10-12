@@ -13,6 +13,7 @@ import ChinaMap from '../page/chinaMap/index'
 import UseMemo from '../page/useMemo/index'
 import UseCallback from '../page/useCallback/index'
 import Memo from '../page/memoParent/index'
+import HeightEchart from '../page/heightEchart/index'
 
 function Header() {
   return (
@@ -56,6 +57,9 @@ function Header() {
         <Link to="/map">echart实现中国地图</Link>
       </li>
       <li>
+        <Link to="/heightEchart">echart的高级应用</Link>
+      </li>
+      <li>
         <Link to="/useMemo">hook之useMemo</Link>
       </li>
       <li>
@@ -86,6 +90,7 @@ function App() {
             <Route path="/useMemo" component={UseMemo} />
             <Route path="/useCallback" component={UseCallback} />
             <Route path="/memo" component={Memo} />
+            <Route path="/heightEchart" component={HeightEchart} />
         </Switch>
       </div>
     </BrowserRouter>

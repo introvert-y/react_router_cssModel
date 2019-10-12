@@ -32,7 +32,7 @@ function initChart(inst, opt = {}) {
     return;
   }
   const mydata = [  
-    {name: '北京',value: '100' },{name: '天津',value: randomData() },  
+    {name: '北京',value: randomData() },{name: '天津',value: randomData()},  
     {name: '上海',value: randomData() },{name: '重庆',value: randomData() },  
     {name: '河北',value: randomData() },{name: '河南',value: randomData() },  
     {name: '云南',value: randomData() },{name: '辽宁',value: randomData() },  
@@ -61,41 +61,71 @@ function initChart(inst, opt = {}) {
     },  
     tooltip : {  
         trigger: 'item'  
-    },  
+    },
     
     //左侧小导航图标
-    visualMap: {  
-        show : true,  
-        x: 'left',  
-        y: 'center',  
-        splitList: [   
-            {start: 500, end:600},{start: 400, end: 500},  
-            {start: 300, end: 400},{start: 200, end: 300},  
-            {start: 100, end: 200},{start: 0, end: 100},  
-        ],  
-        color: ['#5475f5', '#9feaa5', '#85daef','#74e2ca', '#e6ac53', '#9fb5ea']  
-    },  
+    visualMap: [
+    //   {  
+    //     show : true,  
+    //     x: 'left',  
+    //     y: 'center',  
+    //     splitList: [   
+    //         {start: 500, end:600},{start: 400, end: 500},  
+    //         {start: 300, end: 400},{start: 200, end: 300},  
+    //         {start: 100, end: 200},{start: 0, end: 100},  
+    //     ],  
+    //     color: ['#5475f5', '#9feaa5', '#85daef','#74e2ca', '#e6ac53', '#9fb5ea']  
+    // },
+    {
+      min: 0,
+      max: 500,
+      left: 'left',
+      top: 'bottom',
+      text: ['高', '低'],
+      calculable: true,
+      color: '#fff',
+      textStyle: {
+        color: 'black',
+      },
+      inRange: {
+        color: ['#00467F', '#A5CC82']
+      },
+      orient: 'horizontal',
+      itemWidth: 9,
+    },
+  ],
     
     //配置属性
-    series: [{  
-        name: '数据',  
-        type: 'map',  
-        mapType: 'china',   
-        roam: true,  
-        label: {  
-          position: 'inside',
-          emphasis: {  
-              show: false  
-          }  
+    series: [
+    {
+      type: 'map',
+      mapType: 'china',
+      roam: false,
+      label: {
+        position: 'inside',
+        emphasis: {
+          show: false,
         },
-        data: mydata.map(item => ({
-          name: replaceProvinceName(item.name),
-          value: item.value,
-          label: {
-            show: true,
-          },
-        })),  //数据
-    }]  
+      },
+      itemStyle: {
+        normal: {
+          areaColor: '#091a5c',
+          borderColor: '#17398e',
+          borderWidth: 1,
+        },
+        emphasis: {
+          areaColor: '#4ffbbd',
+        },
+      },
+      data: mydata.map(item => ({
+        name: replaceProvinceName(item.name),
+        value: item.value,
+        label: {
+          show: true,
+        },
+      })),
+    },
+  ]  
 };  
 
 //使用制定的配置项和数据显示图表
