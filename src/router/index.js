@@ -54,7 +54,7 @@ function Header() {
         <Link to="/echart">echart的简单应用</Link>
       </li>
       <li>
-        <Link to="/map">echart实现中国地图</Link>
+        <Link to="/map">echart实现中国地图并实现图层叠加</Link>
       </li>
       <li>
         <Link to="/heightEchart">echart的高级应用</Link>
