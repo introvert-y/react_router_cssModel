@@ -4,29 +4,29 @@ import React, {
 import echarts from '../../echarts';
 
 
-import { log } from 'util';
-const provinceNameMap = {
-  // 北京市: '北京',
-  // 天津市: '天津',
-  内蒙古自治区: '内蒙古',
-  // 上海市: '上海',
-  广西壮族自治区: '广西',
-  // 重庆市: '重庆',
-  西藏自治区: '西藏',
-  宁夏回族自治区: '宁夏',
-  新疆维吾尔自治区: '新疆',
-  香港特别行政区: '香港',
-  澳门特别行政区: '澳门',
-};
+// import { log } from 'util';
+// const provinceNameMap = {
+//   // 北京市: '北京',
+//   // 天津市: '天津',
+//   内蒙古自治区: '内蒙古',
+//   // 上海市: '上海',
+//   广西壮族自治区: '广西',
+//   // 重庆市: '重庆',
+//   西藏自治区: '西藏',
+//   宁夏回族自治区: '宁夏',
+//   新疆维吾尔自治区: '新疆',
+//   香港特别行政区: '香港',
+//   澳门特别行政区: '澳门',
+// };
 
-function replaceProvinceName(key) {
-  const val = provinceNameMap[key];
-  return val || key;
-}
+// function replaceProvinceName(key) {
+//   const val = provinceNameMap[key];
+//   return val || key;
+// }
 
-function randomData() {  
-  return Math.round(Math.random()*500);  
-} 
+// function randomData() {  
+//   return Math.round(Math.random()*500);  
+// } 
 
 function initChart(inst, opt = {}) {
   if (!inst) {
@@ -162,11 +162,11 @@ const option = {
         trigger: 'item',
         formatter: function(params) {
             if (typeof(params.value)[2] == "undefined") {
-                var toolTiphtml = ''
-                for(var i = 0;i<toolTipData.length;i++){
-                    if(params.name==toolTipData[i].name){
+                let toolTiphtml = ''
+                for(let i = 0;i<toolTipData.length;i++){
+                    if(params.name===toolTipData[i].name){
                         toolTiphtml += toolTipData[i].name+':<br>'
-                        for(var j = 0;j<toolTipData[i].value.length;j++){
+                        for(let j = 0;j<toolTipData[i].value.length;j++){
                             toolTiphtml+=toolTipData[i].value[j].name+':'+toolTipData[i].value[j].value+"<br>"
                         }
                     }
@@ -174,11 +174,11 @@ const option = {
                 // console.log(convertData(data))
                 return toolTiphtml;
             } else {
-                var toolTiphtml = ''
-                for(var i = 0;i<toolTipData.length;i++){
-                    if(params.name==toolTipData[i].name){
+                let toolTiphtml = ''
+                for(let i = 0;i<toolTipData.length;i++){
+                    if(params.name===toolTipData[i].name){
                         toolTiphtml += toolTipData[i].name+':<br>'
-                        for(var j = 0;j<toolTipData[i].value.length;j++){
+                        for(let j = 0;j<toolTipData[i].value.length;j++){
                             toolTiphtml+=toolTipData[i].value[j].name+':'+toolTipData[i].value[j].value+"<br>"
                         }
                     }
