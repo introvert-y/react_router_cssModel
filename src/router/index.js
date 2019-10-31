@@ -14,6 +14,7 @@ import UseMemo from '../page/useMemo/index'
 import UseCallback from '../page/useCallback/index'
 import Memo from '../page/memoParent/index'
 import HeightEchart from '../page/heightEchart/index'
+import FormBox from '../page/form/index'
 
 function Header() {
   return (
@@ -65,6 +66,9 @@ function Header() {
       <li>
         <Link to="/useCallback">hook之useCallback</Link>
       </li>
+      <li>
+        <Link to="/form">form表单</Link>
+      </li>
     </ul>
   );
 }
@@ -91,6 +95,7 @@ function App() {
             <Route path="/useCallback" component={UseCallback} />
             <Route path="/memo" component={Memo} />
             <Route path="/heightEchart" component={HeightEchart} />
+            <Route path="/form" component={FormBox} />
         </Switch>
       </div>
     </BrowserRouter>
