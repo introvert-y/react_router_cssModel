@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Input, Form, Button,
+  Input, Form, Button, message,
 } from 'antd';
 
 const { TextArea } = Input;
@@ -12,9 +12,9 @@ const { TextArea } = Input;
  */
 function Page({form}) {
   const { getFieldDecorator, validateFields, getFieldValue } = form;
-  function hasErrors(fieldsError) {
-    return Object.keys(fieldsError).some(field => fieldsError[field]);
-  }
+  useEffect(() => {
+    message.success('111');
+  }, []);
   function onSubmit() {
     validateFields((err, val) => {
       console.log('value', val);

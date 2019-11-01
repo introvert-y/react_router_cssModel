@@ -1,10 +1,14 @@
 // 如何实现一个react-router路由拦截（导航守卫） https://juejin.im/post/5c31aede6fb9a04a0d570107
 
 import React from "react";
-import { BrowserRouter, Route, Link,Switch } from "react-router-dom";
-import Home from '../page/CssTest/index'
-// import About from '../page/About/index'
+import { BrowserRouter, HashRouter, Route, Link,Switch } from "react-router-dom";
+// import { browserHistory, Router} from 'react-router';
 
+import Home from '../page/CssTest/index';
+import history from '../history';
+import {
+  Modal, message,
+} from 'antd';
 import Counter from '../page/Counter/index'
 import Single from '../page/Single/index'
 import Optimize from '../page/Optimize/index'
@@ -15,7 +19,12 @@ import UseCallback from '../page/useCallback/index'
 import Memo from '../page/memoParent/index'
 import HeightEchart from '../page/heightEchart/index'
 import FormBox from '../page/form/index'
+import PromiseTest from '../page/promise/index'
 
+history.listen(() => {
+  Modal.destroyAll();
+  message.destroy();
+});
 function Header() {
   return (
     <ul>
@@ -69,6 +78,9 @@ function Header() {
       <li>
         <Link to="/form">form表单</Link>
       </li>
+      <li>
+        <Link to="/testPromise">封装req</Link>
+      </li>
     </ul>
   );
 }
@@ -77,7 +89,7 @@ function App() {
   return (
     // basename 为路由前添加前缀
     // <BrowserRouter basename={'/douyu'}>
-    <BrowserRouter>
+    <HashRouter >
       <div>
         <Header />
         <Switch>
@@ -96,9 +108,10 @@ function App() {
             <Route path="/memo" component={Memo} />
             <Route path="/heightEchart" component={HeightEchart} />
             <Route path="/form" component={FormBox} />
+            <Route path="/testPromise" component={PromiseTest} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
