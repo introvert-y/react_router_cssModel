@@ -49,7 +49,7 @@ function Header() {
         <Link to="/queryChildren">嵌套路由</Link>
       </li>
       <li>
-        <Link to="/counter">全局状态共享计数器操作</Link>
+        <Link to="/counter">react-redux的应用和异步流</Link>
       </li>
       <li>
         <Link to="/single">计数器显示</Link>

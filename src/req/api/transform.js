@@ -1,16 +1,16 @@
 import reqwest from 'reqwest';
 import { baseUrl } from '../config';
-import session from './session';
+// import session from './session';
 
 function wrapper(api) {
   console.log('api', api);
   return (data, originData = null) => {
-    const sessionId = session.get();
+    const sessionId = '114f273d90b04a5fbcd1df677ea6d010';
     const {
       method, headers = {},
     } = api;
     if (sessionId) {
-      headers.sessionId = '38d30a51aedb4e7d94f46df8c0cf4654';
+      headers.sessionId = sessionId;
     }
     let newData = null;
     let { url } = api;

@@ -1,6 +1,6 @@
 const api = {
   getMyInfo: {
-    url: '/eobi-api/api/sys/currentUserInfo',
+    url: '/bi-api/api/sys/currentUserInfo',
   },
 };
 
