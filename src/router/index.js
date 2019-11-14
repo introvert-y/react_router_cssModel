@@ -79,7 +79,7 @@ function Header() {
         <Link to="/form">form表单</Link>
       </li>
       <li>
-        <Link to="/testPromise">封装req</Link>
+        <Link to="/testPromise">封装req的方法</Link>
       </li>
     </ul>
   );
