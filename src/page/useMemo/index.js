@@ -21,12 +21,14 @@ function Page() {
         -
         {expensive}
       </h4>
-      {val}
+      {val ? <h4>val</h4> : <h4>请输入内容</h4>}
       <div>
-        <button type="button" onClick={() => setCount(count + 1)}>+c1</button>
-      </div>
-      <div>
-        <input value={val} onChange={(event) => setValue(event.target.value)} />
+        <button type="button" onClick={() => setCount(count + 1)}>add</button>
+        <input
+          style={{ marginLeft: 40 }}
+          value={val}
+          onChange={(event) => setValue(event.target.value)}
+        />
       </div>
     </div>
   );

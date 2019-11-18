@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { CSSTransition } from 'react-transition-group'
+import PropTypes from 'prop-types';
+import {
+  Radio, Button,
+} from 'antd';
+import { CSSTransition } from 'react-transition-group';
 
 
 const StyledDiv = styled.div`
@@ -41,58 +45,57 @@ const StyledDiv = styled.div`
 function Page() {
   const [color, setColor] = useState('blue');
   const [show, setShow] = useState(true);
-  function changeTab(index) {
-    if (color === index) {
+  function changeTab(e) {
+    if (color === e.target.value) {
       return;
     }
-    console.log('改变颜色', index);
-    setColor(index);
-  };
+    // console.log('改变颜色', e.target.value);
+    setColor(e.target.value);
+  }
+
   return (
     <StyledDiv>
       <h4>若父组件选择了blue按钮，子组件则不重复render</h4>
-      <div className={`line ${color === 'blue' && 'line-height'}`}>
-        <button onClick={() => changeTab('blue')}>blue</button>
-      </div>
-      <div className={`line ${color === 'red' && 'line-height'}`}>
-        <button onClick={() => changeTab('red')}>red</button>
-      </div>
-      <div className={`line ${color === 'black' && 'line-height'}`}>
-        <button onClick={() => changeTab('black')}>black</button>
-      </div>
-      <div className="line">
-        <button onClick={() => setShow(!show)}>toggleShow</button>
-      </div>
-      <CSSTransition 
-          in={show}   //用于判断是否出现的状态
-          timeout={800}           //动画持续时间
-          classNames="fade"   //className值，防止重复
-          unmountOnExit
+      <Radio.Group value={color} onChange={changeTab}>
+        <Radio.Button value="blue">blue</Radio.Button>
+        <Radio.Button value="red">red</Radio.Button>
+        <Radio.Button value="yellow">yellow</Radio.Button>
+      </Radio.Group>
+      <Button style={{ marginLeft: 40 }} type="primary" onClick={() => setShow(!show)}>toggleShow</Button>
+      <CSSTransition
+        in={show} // 用于判断是否出现的状态
+        timeout={800} // 动画持续时间
+        classNames="fade" // className值，防止重复
+        unmountOnExit
       >
-         <Son color={color} />
+        <Son color={color} />
       </CSSTransition>
     </StyledDiv>
-  )
+  );
 }
 
 class Son extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    }
-  };
-  shouldComponentUpdate(nextProps,nextState){
-    if(nextProps.color !== 'blue'){
-        return true
-    }else{
-        return false
-    }
+    };
   }
+
+  shouldComponentUpdate(nextProps) {
+    return nextProps.color !== 'yellow';
+  }
+
   render() {
-    console.log('来咯来咯');
+    console.log('son render');
+    const { color } = this.props;
     return (
-      <div style={{ color: this.props.color }}>1111</div>
-    )
+      <div style={{ color, marginTop: 20 }}>1111</div>
+    );
   }
 }
+Son.propTypes = {
+  color: PropTypes.string.isRequired,
+};
+
+
 export default Page;
