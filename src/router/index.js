@@ -1,25 +1,23 @@
 // 如何实现一个react-router路由拦截（导航守卫） https://juejin.im/post/5c31aede6fb9a04a0d570107
-
-import React from "react";
-import { BrowserRouter, HashRouter, Route, Link,Switch } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, HashRouter, Route, Link,Switch } from 'react-router-dom';
 // import { browserHistory, Router} from 'react-router';
-
-import Home from '../page/CssTest/index';
-import history from '../history';
 import {
   Modal, message,
 } from 'antd';
-import Counter from '../page/Counter/index'
-import Single from '../page/Single/index'
-import Optimize from '../page/Optimize/index'
-import EchartBox from '../page/echartBox/index'
-import ChinaMap from '../page/chinaMap/index'
-import UseMemo from '../page/useMemo/index'
-import UseCallback from '../page/useCallback/index'
-import Memo from '../page/memoParent/index'
-import HeightEchart from '../page/heightEchart/index'
-import FormBox from '../page/form/index'
-import PromiseTest from '../page/promise/index'
+import Home from '../page/CssTest/index';
+import history from '../history';
+import Counter from '../page/Counter/index';
+import Single from '../page/Single/index';
+import Optimize from '../page/Optimize/index';
+import EchartBox from '../page/echartBox/index';
+import ChinaMap from '../page/chinaMap/index';
+import UseMemo from '../page/useMemo/index';
+import UseCallback from '../page/useCallback/index';
+import Memo from '../page/memoParent/index';
+import HeightEchart from '../page/heightEchart/index';
+import FormBox from '../page/form/index';
+import PromiseTest from '../page/promise/index';
 
 history.listen(() => {
   Modal.destroyAll();
@@ -32,13 +30,13 @@ function Header() {
         <Link to="/">css避免全局渲染方案</Link>
       </li>
       <li>
-        <Link to={{ pathname:"/about" , query: { name: 'Anny' } }}>路由query传单个属性</Link>
+        <Link to={{ pathname:"/about", query: { name: 'Anny' } }}>路由query传单个属性</Link>
       </li>
       <li>
         <Link to={`/practice?data=${encodeURIComponent(JSON.stringify({
           name: 'IG',
           sex: 'man',
-        }))}`} >
+        }))}`}>
           路由query传一个对象
         </Link>
       </li>

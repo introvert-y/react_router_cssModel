@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import style from './index.module.css'
+import style from './index.module.css';
 
 const StyledDiv = styled.div`
   width: 300px;

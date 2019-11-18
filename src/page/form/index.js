@@ -10,7 +10,7 @@ const { TextArea } = Input;
 /**
  * 用户名弹窗
  */
-function Page({form}) {
+function Page({ form }) {
   const { getFieldDecorator, validateFields, getFieldValue } = form;
   useEffect(() => {
     message.success('111');
@@ -43,9 +43,9 @@ function Page({form}) {
           <TextArea placeholder="请输入拒绝原因，必填" />,
         )}
       </Form.Item>
-      <Button onClick={() => onSubmit()} disabled={getFieldValue('text') ? false : true }>提交</Button>
+      <Button onClick={() => onSubmit()} disabled={!getFieldValue('text')}>提交</Button>
     </Form>
-  )
+  );
 }
 
 Page.propTypes = {
