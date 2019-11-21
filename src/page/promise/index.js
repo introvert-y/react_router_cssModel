@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import req from '../../req';
 
 function Page() {
@@ -8,17 +8,16 @@ function Page() {
     req.user.getMyInfo()
       .then((res) => {
         if (res.code !== 0) {
-          // req.err.show(res);
+          req.err.show(res);
           return;
         }
-        console.log('getCrtUserInfos');
+        console.log('getCrtUserInfos', res);
       })
-      // .catch(req.err.show);
+      .catch(req.err.show);
   }
   useEffect(() => {
     getCrtUserInfos();
-  }, [])
-  return 111;
+  }, []);
 }
 
 export default Page;

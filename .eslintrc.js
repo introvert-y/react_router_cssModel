@@ -9,6 +9,7 @@ module.exports = {
         "jsx-a11y/interactive-supports-focus": "off",
         "jsx-a11y/anchor-is-valid": "off",
         "react/no-array-index-key": "off",
+        "no-console": "off",
     },
     "env": {
         "browser": true,
