@@ -1,5 +1,8 @@
 module.exports = {
-    "extends": "airbnb",
+    "extends": [
+        "airbnb",
+        "plugin:prettier/recommended",
+    ],
     "rules": {
         "react/jsx-filename-extension": "off",
         "react/forbid-prop-types": "off",
@@ -10,6 +13,7 @@ module.exports = {
         "jsx-a11y/anchor-is-valid": "off",
         "react/no-array-index-key": "off",
         "no-console": "off",
+        "prettier/prettier": "error"
     },
     "env": {
         "browser": true,
