@@ -1,14 +1,13 @@
-
-import React from 'react';
+import React from "react";
 
 class Page extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    }
+    this.state = {};
   }
+
   render() {
-    return;
+    return 111;
   }
 }
 

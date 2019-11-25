@@ -1,57 +1,4 @@
 /**
- * 校验函数
- */
-const fns = {
-  date: validateDate, // 日期
-  salary: validateSalary, // 薪水
-  workingTime: validateWorkingTime, // 工时
-  remark: validateRemark, // 备注
-  receive: validateReceive, // 实收金额
-  borrow: validateBorrow, // 借款
-  userName: validateUserName, // 人名
-  workType: validateWorkType, // 工种
-  phone: validatePhone, // 手机号码
-  phoneCode: validatePhoneCode, // 短信验证码
-  userAvt: validateUserAvt, // 用户头像
-  workerCode: validateWorkerCode, // 工号
-  bankCardNumber: validateBankCardNumber, // 银行卡号
-  realNamePics: validateRealNamePics, // 实名图片
-  groupName: validateGroupName, // 校验考勤组名
-  teamName: validateTeamName, // 校验考勤组名
-  projectName: validateProjectName, // 项目名
-  companyName: validateCompanyName, // 校验公司名
-  address: validateAddress, // 校验地址
-  idCard: validateIdCard // 校验身份证
-};
-
-/**
- * 检验
- */
-function validate(options) {
-  const keys = Object.keys(options);
-
-  for (let i = 0; i < keys.length; i += 1) {
-    const key = keys[i];
-    const val = options[key];
-    const fn = fns[key];
-
-    if (fn) {
-      const res = val && val.label ? fn(val.value, val.label) : fn(val);
-
-      if (res.msg) {
-        return res;
-      }
-    } else {
-      return {
-        msg: `找不到校验函数：${key}`
-      };
-    }
-  }
-
-  return true;
-}
-
-/**
  * 校验浮点数
  */
 function checkFloatNum(n, limit) {
@@ -476,6 +423,58 @@ function validateIdCard(val, label = "身份证号") {
     return {
       msg: `${label}格式错误`
     };
+  }
+
+  return true;
+}
+/**
+ * 校验函数
+ */
+const fns = {
+  date: validateDate, // 日期
+  salary: validateSalary, // 薪水
+  workingTime: validateWorkingTime, // 工时
+  remark: validateRemark, // 备注
+  receive: validateReceive, // 实收金额
+  borrow: validateBorrow, // 借款
+  userName: validateUserName, // 人名
+  workType: validateWorkType, // 工种
+  phone: validatePhone, // 手机号码
+  phoneCode: validatePhoneCode, // 短信验证码
+  userAvt: validateUserAvt, // 用户头像
+  workerCode: validateWorkerCode, // 工号
+  bankCardNumber: validateBankCardNumber, // 银行卡号
+  realNamePics: validateRealNamePics, // 实名图片
+  groupName: validateGroupName, // 校验考勤组名
+  teamName: validateTeamName, // 校验考勤组名
+  projectName: validateProjectName, // 项目名
+  companyName: validateCompanyName, // 校验公司名
+  address: validateAddress, // 校验地址
+  idCard: validateIdCard // 校验身份证
+};
+
+/**
+ * 检验
+ */
+function validate(options) {
+  const keys = Object.keys(options);
+
+  for (let i = 0; i < keys.length; i += 1) {
+    const key = keys[i];
+    const val = options[key];
+    const fn = fns[key];
+
+    if (fn) {
+      const res = val && val.label ? fn(val.value, val.label) : fn(val);
+
+      if (res.msg) {
+        return res;
+      }
+    } else {
+      return {
+        msg: `找不到校验函数：${key}`
+      };
+    }
   }
 
   return true;
