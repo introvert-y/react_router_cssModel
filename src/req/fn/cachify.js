@@ -1,5 +1,5 @@
 const cacheObj = {};
-const defaultId = '__THIS_IS_A_DEFAULT_ID__';
+const defaultId = "__THIS_IS_A_DEFAULT_ID__";
 
 function cachifyPlugin(req) {
   /**
@@ -7,33 +7,34 @@ function cachifyPlugin(req) {
    * @param {boolean} force 是否强制发起请求，不走缓存
    * @param {string} id 作为辅助的标志，细分缓存的类型，比如分页
    */
-  return (apiName, force, id = defaultId) => (opt) => new Promise((res, rej) => {
-    const caches = cacheObj[apiName];
-    const cache = caches ? caches[id] : undefined;
-    const apiArr = apiName.split('.');
-    apiArr.unshift(req);
-    const api = apiArr.reduce((pV, cV) => pV[cV]);
-    if (!cache || force) {
-      api(opt)
-        .then((r1) => {
-          if (!caches) {
-            cacheObj[apiName] = {};
-          }
-          if (r1.code === 3000) {
-            res(r1);
-            return;
-          }
-          const str = JSON.stringify(r1);
-          cacheObj[apiName][id] = str;
-          res(JSON.parse(str));
-        })
-        .catch((err) => {
-          rej(err);
-        });
-    } else {
-      res(JSON.parse(cache));
-    }
-  });
+  return (apiName, force, id = defaultId) => opt =>
+    new Promise((res, rej) => {
+      const caches = cacheObj[apiName];
+      const cache = caches ? caches[id] : undefined;
+      const apiArr = apiName.split(".");
+      apiArr.unshift(req);
+      const api = apiArr.reduce((pV, cV) => pV[cV]);
+      if (!cache || force) {
+        api(opt)
+          .then(r1 => {
+            if (!caches) {
+              cacheObj[apiName] = {};
+            }
+            if (r1.code === 3000) {
+              res(r1);
+              return;
+            }
+            const str = JSON.stringify(r1);
+            cacheObj[apiName][id] = str;
+            res(JSON.parse(str));
+          })
+          .catch(err => {
+            rej(err);
+          });
+      } else {
+        res(JSON.parse(cache));
+      }
+    });
 }
 
 /**
@@ -54,7 +55,7 @@ function clearAll(apiName) {
     cacheObj[apiName] = null;
     return;
   }
-  Object.keys(cacheObj).map((key) => {
+  Object.keys(cacheObj).map(key => {
     cacheObj[key] = null;
     return key;
   });
@@ -65,5 +66,5 @@ export default {
     req.cachify = cachifyPlugin(req);
     req.clearCache = clear;
     req.clearAllCache = clearAll;
-  },
+  }
 };

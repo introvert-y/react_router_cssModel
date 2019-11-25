@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import {
-  Input, Form, Button, message,
-} from 'antd';
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import { Input, Form, Button, message } from "antd";
 
 const { TextArea } = Input;
 // import req from '../../../req';
@@ -13,11 +11,11 @@ const { TextArea } = Input;
 function Page({ form }) {
   const { getFieldDecorator, validateFields, getFieldValue } = form;
   useEffect(() => {
-    message.success('111');
+    message.success("111");
   }, []);
   function onSubmit() {
     validateFields((err, val) => {
-      console.log('value', val);
+      console.log("value", val);
       if (err) {
         console.log(err);
         return;
@@ -28,28 +26,26 @@ function Page({ form }) {
   return (
     <Form
       labelCol={{
-        span: 6,
+        span: 6
       }}
       wrapperCol={{
-        span: 18,
+        span: 18
       }}
     >
       <Form.Item label="原因：">
-        {getFieldDecorator('text', {
-          rules: [
-            { required: true, message: 'Please input your username!' },
-          ],
-        })(
-          <TextArea placeholder="请输入拒绝原因，必填" />,
-        )}
+        {getFieldDecorator("text", {
+          rules: [{ required: true, message: "Please input your username!" }]
+        })(<TextArea placeholder="请输入拒绝原因，必填" />)}
       </Form.Item>
-      <Button onClick={() => onSubmit()} disabled={!getFieldValue('text')}>提交</Button>
+      <Button onClick={() => onSubmit()} disabled={!getFieldValue("text")}>
+        提交
+      </Button>
     </Form>
   );
 }
 
 Page.propTypes = {
-  form: PropTypes.object.isRequired,
+  form: PropTypes.object.isRequired
 };
 
-export default Form.create({ name: 'edit_cause' })(Page);
+export default Form.create({ name: "edit_cause" })(Page);

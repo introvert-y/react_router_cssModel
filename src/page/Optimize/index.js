@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import {
-  Radio, Button,
-} from 'antd';
-import { CSSTransition } from 'react-transition-group';
-
+import React, { useState } from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
+import { Radio, Button } from "antd";
+import { CSSTransition } from "react-transition-group";
 
 const StyledDiv = styled.div`
   width: 500px;
@@ -15,35 +12,33 @@ const StyledDiv = styled.div`
     height: 50px;
     line-height: 50px;
   }
-  .line-height button{
+  .line-height button {
     background-color: black;
     color: #fff;
   }
-  .fade-enter{
+  .fade-enter {
     opacity: 0;
-}
-.fade-enter-active{
+  }
+  .fade-enter-active {
     opacity: 1;
     transition: opacity 2000ms;
-
-}
-.fade-enter-done{
+  }
+  .fade-enter-done {
     opacity: 1;
-}
-.fade-exit{
+  }
+  .fade-exit {
     opacity: 1;
-}
-.fade-exit-active{
+  }
+  .fade-exit-active {
     opacity: 0;
     transition: opacity 2000ms;
-
-}
-.fade-exit-done{
+  }
+  .fade-exit-done {
     opacity: 0;
-}
+  }
 `;
 function Page() {
-  const [color, setColor] = useState('blue');
+  const [color, setColor] = useState("blue");
   const [show, setShow] = useState(true);
   function changeTab(e) {
     if (color === e.target.value) {
@@ -61,7 +56,9 @@ function Page() {
         <Radio.Button value="red">red</Radio.Button>
         <Radio.Button value="yellow">yellow</Radio.Button>
       </Radio.Group>
-      <Button style={{ marginLeft: 40 }} type="primary" onClick={() => setShow(!show)}>toggleShow</Button>
+      <Button style={{ marginLeft: 40 }} type="primary" onClick={() => setShow(!show)}>
+        toggleShow
+      </Button>
       <CSSTransition
         in={show} // 用于判断是否出现的状态
         timeout={800} // 动画持续时间
@@ -77,25 +74,21 @@ function Page() {
 class Son extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
   shouldComponentUpdate(nextProps) {
-    return nextProps.color !== 'yellow';
+    return nextProps.color !== "yellow";
   }
 
   render() {
-    console.log('son render');
+    console.log("son render");
     const { color } = this.props;
-    return (
-      <div style={{ color, marginTop: 20 }}>1111</div>
-    );
+    return <div style={{ color, marginTop: 20 }}>1111</div>;
   }
 }
 Son.propTypes = {
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired
 };
-
 
 export default Page;

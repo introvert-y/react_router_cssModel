@@ -1,8 +1,8 @@
-import { Modal, message } from 'antd';
-import history from '../../history';
+import { Modal, message } from "antd";
+import history from "../../history";
 
 const CODE = {
-  sessionExpired: 3000,
+  sessionExpired: 3000
 };
 
 /**
@@ -27,7 +27,7 @@ function goLogin() {
  * @param {any} err 错误对象
  */
 function msgPicker(err) {
-  if (typeof err === 'string') {
+  if (typeof err === "string") {
     console.error(err);
     return err;
   }
@@ -41,7 +41,7 @@ function msgPicker(err) {
     console.error(msg);
     return msg;
   }
-  const msg = '未知错误';
+  const msg = "未知错误";
   console.error(err);
   return msg;
 }
@@ -53,13 +53,11 @@ function msgPicker(err) {
 function show(err) {
   const msg = msgPicker(err);
   if (err.code && err.code === CODE.sessionExpired) {
-    return message
-      .error('登录已过期，请重新登录', 2)
-      .then(goLogin);
+    return message.error("登录已过期，请重新登录", 2).then(goLogin);
   }
   return Modal.warning({
-    title: '提示',
-    content: msg,
+    title: "提示",
+    content: msg
   });
 }
 
@@ -69,7 +67,7 @@ export default {
       msgPicker,
       show,
       goLogin,
-      CODE,
+      CODE
     };
-  },
+  }
 };

@@ -1,17 +1,17 @@
-
-import { useEffect } from 'react';
-import req from '../../req';
+import { useEffect } from "react";
+import req from "../../req";
 
 function Page() {
   // const [infos, setInfos] = useState(null);
   function getCrtUserInfos() {
-    req.user.getMyInfo()
-      .then((res) => {
+    req.user
+      .getMyInfo()
+      .then(res => {
         if (res.code !== 0) {
           req.err.show(res);
           return;
         }
-        console.log('getCrtUserInfos', res);
+        console.log("getCrtUserInfos", res);
       })
       .catch(req.err.show);
   }

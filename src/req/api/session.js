@@ -7,14 +7,16 @@
 export function setCookie(cName, value, expiredays) {
   const cookies = {
     [cName]: escape(value),
-    path: '/',
+    path: "/"
   };
   if (expiredays) {
     const exdate = new Date();
     exdate.setDate(exdate.getDate() + expiredays);
     cookies.expires = exdate.toGMTString();
   }
-  document.cookie = Object.keys(cookies).map((key) => `${key}=${cookies[key]}`).join(';');
+  document.cookie = Object.keys(cookies)
+    .map(key => `${key}=${cookies[key]}`)
+    .join(";");
 }
 
 /**
@@ -26,18 +28,18 @@ export function getCookie(cName) {
     let cStart = document.cookie.indexOf(`${cName}=`);
     if (cStart !== -1) {
       cStart = cStart + cName.length + 1;
-      let cEnd = document.cookie.indexOf(';', cStart);
+      let cEnd = document.cookie.indexOf(";", cStart);
       if (cEnd === -1) {
         cEnd = document.cookie.length;
       }
       return unescape(document.cookie.substring(cStart, cEnd));
     }
   }
-  return '';
+  return "";
 }
 
-const cookieKey = 'sessionId';
-let sessionId = getCookie(cookieKey) || '';
+const cookieKey = "sessionId";
+let sessionId = getCookie(cookieKey) || "";
 
 /**
  * 获取session
@@ -56,5 +58,5 @@ function setSession(val) {
 
 export default {
   get: getSession,
-  set: setSession,
+  set: setSession
 };
