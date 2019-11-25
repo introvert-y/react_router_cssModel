@@ -1,5 +1,3 @@
-
-
 const fs = require("fs");
 const isWsl = require("is-wsl");
 const path = require("path");
@@ -19,7 +17,6 @@ const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const WatchMissingNodeModulesPlugin = require("react-dev-utils/WatchMissingNodeModulesPlugin");
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent");
-const modules = require("./modules");
 const getClientEnvironment = require("./env");
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
 const ForkTsCheckerWebpackPlugin = require("react-dev-utils/ForkTsCheckerWebpackPlugin");
@@ -27,6 +24,7 @@ const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
 const eslint = require("eslint");
 
 const postcssNormalize = require("postcss-normalize");
+const modules = require("./modules");
 const paths = require("./paths");
 
 const appPackageJson = require(paths.appPackageJson);
@@ -471,29 +469,26 @@ module.exports = function(webpackEnv) {
     },
     plugins: [
       // Generates an `index.html` file with the <script> injected.
-      new HtmlWebpackPlugin(
-        {
-          
-          inject: true,
-            template: paths.appHtml,
-          ...(isEnvProduction
-            ? {
-                minify: {
-                  removeComments: true,
-                  collapseWhitespace: true,
-                  removeRedundantAttributes: true,
-                  useShortDoctype: true,
-                  removeEmptyAttributes: true,
-                  removeStyleLinkTypeAttributes: true,
-                  keepClosingSlash: true,
-                  minifyJS: true,
-                  minifyCSS: true,
-                  minifyURLs: true
-                }
+      new HtmlWebpackPlugin({
+        inject: true,
+        template: paths.appHtml,
+        ...(isEnvProduction
+          ? {
+              minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true
               }
-            : undefined)
-        }
-      ),
+            }
+          : undefined)
+      }),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       isEnvProduction && shouldInlineRuntimeChunk && new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/runtime~.+[.]js/]),
@@ -561,7 +556,7 @@ module.exports = function(webpackEnv) {
           clientsClaim: true,
           exclude: [/\.map$/, /asset-manifest\.json$/],
           importWorkboxFrom: "cdn",
-          navigateFallback: `${publicUrl  }/index.html`,
+          navigateFallback: `${publicUrl}/index.html`,
           navigateFallbackBlacklist: [
             // Exclude URLs starting with /_, as they're likely an API call
             new RegExp("^/_"),
