@@ -3,7 +3,6 @@
 # service-landing/src/views/RealName.vue
 serviceWorker.js
 history.js
-src/router/index.js
 src/page/echartBox/index.js
 src/page/heightEchart/index.js
 src/page/chinaMap/index.js
