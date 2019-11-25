@@ -72,29 +72,19 @@
     "webpack": "4.39.1",
     "webpack-dev-server": "3.2.1",
     "webpack-manifest-plugin": "2.0.4",
-    "workbox-webpack-plugin": "4.3.1"
-  },
-  "lint-staged": {
-    "src/*.{js,jsx,mjs,ts,tsx}": [
-      "node_modules/.bin/prettier --write",
-      "node_modules/.bin/eslint --fix",
-      "git add"
-    ],
-    "src/*.{css,scss,less,json,html,md,markdown}": [
-      "node_modules/.bin/prettier --write",
-      "git add"
-    ]
+    "workbox-webpack-plugin": "4.3.1",
+    "history": "^4.7.2"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run lint && pretty-quick --staged"
     }
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "lint": "eslint src"
+    "lint": "eslint src --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -174,7 +164,6 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.12.4",
     "husky": "^3.1.0",
-    "lint-staged": "^9.4.3",
     "prettier": "1.19.1",
     "pretty-quick": "^2.0.1",
     "react-router-dom": "^5.1.2"

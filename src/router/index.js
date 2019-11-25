@@ -139,7 +139,12 @@ function RouteLink({ location }) {
 
 function RouteQuery({ location }) {
   console.log("query传参", location);
-  return <h2>About: {location.query ? `name：${location.query.name}, time: ${location.query.time}` : "No Click"}</h2>;
+  return (
+    <h2>
+      About:
+      {location.query ? `name：${location.query.name}, time: ${location.query.time}` : "No Click"}
+    </h2>
+  );
 }
 
 function RouteParams({ location }) {
