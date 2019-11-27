@@ -11,7 +11,8 @@ module.exports = {
     "react/no-array-index-key": "off",
     "no-console": "off",
     "prettier/prettier": "error",
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "no-unused-vars": "off"
   },
   env: {
     browser: true

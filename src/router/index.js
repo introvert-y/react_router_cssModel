@@ -2,6 +2,7 @@
 import React from "react";
 import { HashRouter, Route, Link, Switch } from "react-router-dom";
 // import { browserHistory, Router} from 'react-router';
+import { connect } from "react-redux";
 import { Modal, message } from "antd";
 import PropTypes from "prop-types";
 import Home from "../page/CssTest/index";
@@ -17,6 +18,10 @@ import HeightEchart from "../page/heightEchart/index";
 import FormBox from "../page/form/index";
 import PromiseTest from "../page/promise/index";
 
+const mapStateToProps = state => ({
+  value: state.count,
+  name: state.name
+});
 /**
  * 解决ant-design的路由跳转，modal和message组件不关闭问题
  */
@@ -185,35 +190,45 @@ function QueryChildren({ match }) {
   );
 }
 
-function App() {
+function App({ value, name }) {
   return (
     // basename 为路由前添加前缀
     // <BrowserRouter basename={'/douyu'}>
-    <HashRouter>
-      <div style={{ marginLeft: 40 }}>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/query" component={RouteQuery} />
-          <Route path="/link" component={RouteLink} />
-          <Route path="/params" component={RouteParams} />
-          <Route path="/queryChildren" component={QueryChildren} />
-          <Route path="/counter" component={Counter} />
-          <Route path="/optimize" component={Optimize} />
-          <Route path="/echart" component={EchartBox} />
-          <Route path="/map" component={ChinaMap} />
-          <Route path="/useMemo" component={UseMemo} />
-          <Route path="/useCallback" component={UseCallback} />
-          <Route path="/memo" component={Memo} />
-          <Route path="/heightEchart" component={HeightEchart} />
-          <Route path="/form" component={FormBox} />
-          <Route path="/testPromise" component={PromiseTest} />
-        </Switch>
+    <>
+      <div style={{ paddingLeft: 50, fontSize: 20 }}>
+        <span>全局状态显示：</span>
+        <span>{value}</span>
+        <span style={{ paddingLeft: 50 }}>{name}</span>
       </div>
-    </HashRouter>
+      <HashRouter>
+        <div style={{ marginLeft: 40 }}>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/query" component={RouteQuery} />
+            <Route path="/link" component={RouteLink} />
+            <Route path="/params" component={RouteParams} />
+            <Route path="/queryChildren" component={QueryChildren} />
+            <Route path="/counter" component={Counter} />
+            <Route path="/optimize" component={Optimize} />
+            <Route path="/echart" component={EchartBox} />
+            <Route path="/map" component={ChinaMap} />
+            <Route path="/useMemo" component={UseMemo} />
+            <Route path="/useCallback" component={UseCallback} />
+            <Route path="/memo" component={Memo} />
+            <Route path="/heightEchart" component={HeightEchart} />
+            <Route path="/form" component={FormBox} />
+            <Route path="/testPromise" component={PromiseTest} />
+          </Switch>
+        </div>
+      </HashRouter>
+    </>
   );
 }
-
+App.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired
+};
 RouteParams.propTypes = {
   location: PropTypes.object.isRequired
 };
@@ -226,4 +241,4 @@ RouteQuery.propTypes = {
 QueryChildren.propTypes = {
   match: PropTypes.object.isRequired
 };
-export default App;
+export default connect(mapStateToProps)(App);

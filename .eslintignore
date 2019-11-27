@@ -6,3 +6,4 @@ src/page/heightEchart/index.js
 src/page/chinaMap/index.js
 src/page/useCallBack/index.js
 src/serviceWorker.js
+# src/index.js

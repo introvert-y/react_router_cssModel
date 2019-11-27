@@ -9,10 +9,19 @@ function caculateNum(count = 0, action) {
   }
 }
 
-const reducer = (state = { count: 0, phone: "", name: "Ming" }, action) => ({
+function caculateName(name, action) {
+  switch (action.type) {
+    case "setName":
+      return action.name;
+    default:
+      return name;
+  }
+}
+
+const reducer = (state = { count: 0, name: "Ming" }, action) => ({
   ...state,
   count: caculateNum(state.count, action),
-  phone: action.phone
+  name: caculateName(state.name, action)
 });
 
 export default reducer;
