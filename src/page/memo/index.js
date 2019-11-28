@@ -6,14 +6,15 @@ function MyComponent({ name }) {
   console.log("子组件渲染了");
   return <div>{name}</div>;
 }
-function areEqual() {
-  // areEqual(prevProps, nextProps)
-  // true则不重新渲染， 相反则重新渲染
-  return true;
-}
+// function areEqual() {
+//   // areEqual(prevProps, nextProps)
+//   // true则不重新渲染， 相反则重新渲染
+//   return true;
+// }
 
 MyComponent.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
 
-export default React.memo(MyComponent, areEqual);
+// export default React.memo(MyComponent, areEqual);
+export default React.memo(MyComponent);

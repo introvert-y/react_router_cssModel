@@ -20,7 +20,7 @@ function getInfoWraper(req) {
           res({
             menuMap,
             menuTrees,
-            funcMap
+            funcMap,
           });
         })
         .catch(rej);
@@ -31,7 +31,7 @@ module.exports = {
   install(R) {
     const req = R;
     req.authority = {
-      getInfo: getInfoWraper(R)
+      getInfo: getInfoWraper(R),
     };
-  }
+  },
 };

@@ -18,6 +18,8 @@ function Page() {
   useEffect(() => {
     getCrtUserInfos();
   }, []);
+
+  return "11111";
 }
 
 export default Page;

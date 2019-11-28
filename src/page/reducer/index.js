@@ -18,10 +18,10 @@ function caculateName(name, action) {
   }
 }
 
-const reducer = (state = { count: 0, name: "Ming" }, action) => ({
+const reducer = (state = { count: 0, name: "Ming", messageCount: 0 }, action) => ({
   ...state,
   count: caculateNum(state.count, action),
-  name: caculateName(state.name, action)
+  name: caculateName(state.name, action),
 });
 
 export default reducer;

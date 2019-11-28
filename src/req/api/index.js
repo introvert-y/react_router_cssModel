@@ -6,5 +6,5 @@ export default {
   install(req) {
     req.session = session;
     req.user = transform(user);
-  }
+  },
 };

@@ -5,7 +5,7 @@ import { baseUrl } from "../config";
 function wrapper(api) {
   console.log("api", api);
   return (data, originData = null) => {
-    const sessionId = "114f273d90b04a5fbcd1df677ea6d010";
+    const sessionId = "0ca8eb6dd8b345c9a5126f69541aa7fd";
     const { method, headers = {} } = api;
     if (sessionId) {
       headers.sessionId = sessionId;
@@ -28,7 +28,7 @@ function wrapper(api) {
       data: originData || newData,
       type: "json",
       headers,
-      contentType: "application/json"
+      contentType: "application/json",
     };
     return reqwest(options);
   };

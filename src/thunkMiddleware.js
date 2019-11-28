@@ -3,7 +3,7 @@ const thunkMiddleware = store => next => action => {
   if (action.type === "changeName") {
     setTimeout(() => {
       store.dispatch({ type: "setName", name: "炎黄子孙" });
-    }, 5000);
+    }, 3000);
   }
   next(action);
 };

@@ -2,40 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Radio, Button } from "antd";
-import { CSSTransition } from "react-transition-group";
+// import { CSSTransition } from "react-transition-group";
 
 const StyledDiv = styled.div`
   width: 500px;
   height: 300px;
   text-align: center;
-  .line {
-    height: 50px;
-    line-height: 50px;
-  }
-  .line-height button {
-    background-color: black;
-    color: #fff;
-  }
-  .fade-enter {
-    opacity: 0;
-  }
-  .fade-enter-active {
-    opacity: 1;
-    transition: opacity 2000ms;
-  }
-  .fade-enter-done {
-    opacity: 1;
-  }
-  .fade-exit {
-    opacity: 1;
-  }
-  .fade-exit-active {
-    opacity: 0;
-    transition: opacity 2000ms;
-  }
-  .fade-exit-done {
-    opacity: 0;
-  }
 `;
 function Page() {
   const [color, setColor] = useState("blue");
@@ -50,23 +22,16 @@ function Page() {
 
   return (
     <StyledDiv>
-      <h4>若父组件选择了blue按钮，子组件则不重复render</h4>
+      <h2>若父组件选择了yellow按钮，子组件则不重复render,可打开控制台查看console</h2>
+      <h3>
+        这个过程是在子组件里做的处理，也可以在父组件里setValue的时候，如果Value等于yellow就return，也可以达到这种效果
+      </h3>
       <Radio.Group value={color} onChange={changeTab}>
         <Radio.Button value="blue">blue</Radio.Button>
         <Radio.Button value="red">red</Radio.Button>
         <Radio.Button value="yellow">yellow</Radio.Button>
       </Radio.Group>
-      <Button style={{ marginLeft: 40 }} type="primary" onClick={() => setShow(!show)}>
-        toggleShow
-      </Button>
-      <CSSTransition
-        in={show} // 用于判断是否出现的状态
-        timeout={800} // 动画持续时间
-        classNames="fade" // className值，防止重复
-        unmountOnExit
-      >
-        <Son color={color} />
-      </CSSTransition>
+      <Son color={color} />
     </StyledDiv>
   );
 }
@@ -88,7 +53,7 @@ class Son extends React.Component {
   }
 }
 Son.propTypes = {
-  color: PropTypes.string.isRequired
+  color: PropTypes.string.isRequired,
 };
 
 export default Page;

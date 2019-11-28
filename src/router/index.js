@@ -12,7 +12,6 @@ import Optimize from "../page/Optimize/index";
 import EchartBox from "../page/echartBox/index";
 import ChinaMap from "../page/chinaMap/index";
 import UseMemo from "../page/useMemo/index";
-import UseCallback from "../page/useCallback/index";
 import Memo from "../page/memoParent/index";
 import HeightEchart from "../page/heightEchart/index";
 import FormBox from "../page/form/index";
@@ -20,7 +19,7 @@ import PromiseTest from "../page/promise/index";
 
 const mapStateToProps = state => ({
   value: state.count,
-  name: state.name
+  name: state.name,
 });
 /**
  * 解决ant-design的路由跳转，modal和message组件不关闭问题
@@ -31,7 +30,7 @@ history.listen(() => {
 });
 function Header() {
   return (
-    <ul>
+    <ul style={{ fontSize: 18 }}>
       <li>
         <Link to="/">css避免全局渲染方案，打开控制台查看类名</Link>
       </li>
@@ -61,9 +60,9 @@ function Header() {
                   time: "2",
                   obj: JSON.stringify({
                     name: "IG",
-                    sex: "man"
-                  })
-                }
+                    sex: "man",
+                  }),
+                },
               }}
             >
               路由query传参
@@ -74,7 +73,7 @@ function Header() {
               to={`/link?data=${encodeURIComponent(
                 JSON.stringify({
                   name: "IG",
-                  sex: "man"
+                  sex: "man",
                 })
               )}`}
             >
@@ -90,9 +89,9 @@ function Header() {
                   year: "18",
                   obj: JSON.stringify({
                     name: "IG",
-                    sex: "man"
-                  })
-                }
+                    sex: "man",
+                  }),
+                },
               }}
             >
               路由params传参
@@ -108,16 +107,15 @@ function Header() {
         <Link to="/counter">react-redux的应用和异步流</Link>
       </li>
       <li>
-        <Link to="/optimize">性能优化之shouldComponentUpdate,及第三方动画库做简单动画</Link>
+        <Link to="/optimize">
+          性能优化之shouldComponentUpdate, 手动处理何种情况渲染子组件, 子组件得是继承React.Component
+        </Link>
       </li>
       <li>
-        <Link to="/memo">性能优化之memo，相当于函数组件里的shouldComponentUpdate</Link>
+        <Link to="/memo">性能优化之React.memo，相当于函数组件里的shouldComponentUpdate</Link>
       </li>
       <li>
-        <Link to="/useMemo">hook之useMemo</Link>
-      </li>
-      <li>
-        <Link to="/useCallback">hook之useCallback</Link>
+        <Link to="/useMemo">hook之useMemo，相当于vue中的计算属性computed</Link>
       </li>
       <li>
         <Link to="/form">form表单</Link>
@@ -197,8 +195,8 @@ function App({ value, name }) {
     <>
       <div style={{ paddingLeft: 50, fontSize: 20 }}>
         <span>全局状态显示：</span>
-        <span>{value}</span>
-        <span style={{ paddingLeft: 50 }}>{name}</span>
+        <span>计数器：{value}</span>
+        <span style={{ paddingLeft: 50 }}>name:{name}</span>
       </div>
       <HashRouter>
         <div style={{ marginLeft: 40 }}>
@@ -214,7 +212,6 @@ function App({ value, name }) {
             <Route path="/echart" component={EchartBox} />
             <Route path="/map" component={ChinaMap} />
             <Route path="/useMemo" component={UseMemo} />
-            <Route path="/useCallback" component={UseCallback} />
             <Route path="/memo" component={Memo} />
             <Route path="/heightEchart" component={HeightEchart} />
             <Route path="/form" component={FormBox} />
@@ -227,18 +224,18 @@ function App({ value, name }) {
 }
 App.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired
+  value: PropTypes.number.isRequired,
 };
 RouteParams.propTypes = {
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
 };
 SonQuery.propTypes = {
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
 };
 RouteQuery.propTypes = {
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
 };
 QueryChildren.propTypes = {
-  match: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired,
 };
 export default connect(mapStateToProps)(App);
