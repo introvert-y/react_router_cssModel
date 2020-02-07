@@ -1,7 +1,7 @@
 const api = {
-  getMyInfo: {
-    url: "/bi-api/api/sys/currentUserInfo",
-  },
+	getMyInfo: {
+		url: "/bi-api/api/sys/currentUserInfo",
+	},
 };
 
 export default api;

@@ -1,7 +1,7 @@
 const req = {};
 
 req.use = ({ install }) => {
-  install(req);
+	install(req);
 };
 
 export default req;

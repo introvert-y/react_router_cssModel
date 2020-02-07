@@ -1,0 +1,16 @@
+{
+	"files.autoSave": "onFocusChange",
+	"editor.formatOnSave": true,
+	"editor.formatOnType": true,
+	"eslint.autoFixOnSave": true,
+	"eslint.enable": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"workbench.iconTheme": "vscode-great-icons",
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.fontSize": 17,
+	"editor.tabSize": 2
+}

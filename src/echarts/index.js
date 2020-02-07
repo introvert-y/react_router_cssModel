@@ -18,7 +18,7 @@ import "echarts/lib/component/grid";
 import "echarts/lib/component/visualMap";
 import "echarts/lib/component/dataZoom";
 
-import chinaJson from "./china";
+import chinaJson from "./china.json";
 
 echarts.registerMap("china", chinaJson);
 
