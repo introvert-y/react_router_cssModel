@@ -9,11 +9,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
 	onIncreaseClick: () => ({
 		type: "increase",
-		count: 10,
+		count: 1,
 	}),
 	onDecreaseClick: () => ({
 		type: "decrease",
-		count: 10,
+		count: 1,
 	}),
 	changeName: () => ({
 		type: "changeName",

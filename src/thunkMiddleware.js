@@ -5,7 +5,9 @@ const thunkMiddleware = store => next => action => {
 			store.dispatch({ type: "setName", name: "炎黄子孙" });
 		}, 3000);
 	}
-	next(action);
+	const result = next(action);
+	console.log("放行");
+	return result;
 };
 
 export default thunkMiddleware;

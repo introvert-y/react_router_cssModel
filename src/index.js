@@ -10,21 +10,20 @@ import { Provider } from "react-redux";
 import reducer from "./page/reducer/index";
 import AppRouter from "./router/index";
 import thunkMiddleware from "./thunkMiddleware";
-import * as serviceWorker from "./serviceWorker";
 
 /**
  * 官方自带的操作显示工具
  */
 const loggerMiddleware = createLogger();
 
-// const logger = store => next => action => {
-//   console.log("dispatching", action);
-//   const result = next(action);
-//   console.log("next state", store.getState());
-//   return result;
-// };
+const logger = store => next => action => {
+	console.log("dispatching", action);
+	const result = next(action);
+	console.log("next state", store.getState());
+	return result;
+};
 
-const store = createStore(reducer, applyMiddleware(thunkMiddleware, loggerMiddleware));
+const store = createStore(reducer, applyMiddleware(thunkMiddleware, logger));
 
 ReactDOM.render(
 	<Provider store={store}>
@@ -32,8 +31,3 @@ ReactDOM.render(
 	</Provider>,
 	document.getElementById("root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
