@@ -12,6 +12,7 @@ import Optimize from "../page/Optimize/index";
 import EchartBox from "../page/echartBox/index";
 import ChinaMap from "../page/chinaMap/index";
 import UseMemo from "../page/useMemo/index";
+import UseCallback from "../page/useCallback/index";
 import Memo from "../page/memoParent/index";
 import HeightEchart from "../page/heightEchart/index";
 import FormBox from "../page/form/index";
@@ -119,6 +120,9 @@ function Header() {
 				<Link to="/useMemo">hook之useMemo，相当于vue中的计算属性computed</Link>
 			</li>
 			<li>
+				<Link to="/useCallback">hook之useCallback，useCallback(fn, deps) 相当于 useMemo(() =&gt; fn, deps)</Link>
+			</li>
+			<li>
 				<Link to="/form">form表单</Link>
 			</li>
 			<li>
@@ -216,6 +220,7 @@ function App({ value, name }) {
 						<Route path="/echart" component={EchartBox} />
 						<Route path="/map" component={ChinaMap} />
 						<Route path="/useMemo" component={UseMemo} />
+						<Route path="/useCallback" component={UseCallback} />
 						<Route path="/memo" component={Memo} />
 						<Route path="/heightEchart" component={HeightEchart} />
 						<Route path="/form" component={FormBox} />
