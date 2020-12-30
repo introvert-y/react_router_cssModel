@@ -2,11 +2,10 @@ import React from "react";
 
 import ReactDOM from "react-dom";
 import "./index.css";
-
 import { createStore, applyMiddleware } from "redux";
 import { createLogger } from "redux-logger";
 import { Provider } from "react-redux";
-
+import "flex.css/dist/data-flex.css";
 import reducer from "./page/reducer/index";
 import AppRouter from "./router/index";
 import thunkMiddleware from "./thunkMiddleware";
