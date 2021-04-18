@@ -11,7 +11,6 @@ const StyledDiv = styled.div`
 `;
 function Page() {
 	const [color, setColor] = useState("blue");
-	const [show, setShow] = useState(true);
 	function changeTab(e) {
 		if (color === e.target.value) {
 			return;

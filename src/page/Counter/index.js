@@ -6,19 +6,26 @@ const mapStateToProps = state => ({
 	value: state.count,
 });
 
-const mapDispatchToProps = {
-	onIncreaseClick: () => ({
-		type: "increase",
-		count: 1,
-	}),
-	onDecreaseClick: () => ({
-		type: "decrease",
-		count: 1,
-	}),
-	changeName: () => ({
-		type: "changeName",
-	}),
-};
+const mapDispatchToProps = dispatch => ({
+	onIncreaseClick: () =>
+		dispatch({
+			type: "increase",
+			count: 1,
+		}),
+	onDecreaseClick: () =>
+		dispatch({
+			type: "decrease",
+			count: 1,
+		}),
+	changeName: () =>
+		// setTimeout(() => {
+		// 	dispatch({ type: "setName", name: "炎黄子孙" });
+		// }, 3000),
+		// 全局拦截
+		dispatch({
+			type: "changeName",
+		}),
+});
 
 function Page({ onIncreaseClick, onDecreaseClick, changeName }) {
 	return (

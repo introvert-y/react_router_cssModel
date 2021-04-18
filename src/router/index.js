@@ -10,10 +10,9 @@ import history from "../history";
 import Counter from "../page/Counter/index";
 import Optimize from "../page/Optimize/index";
 import EchartBox from "../page/echartBox/index";
-import ChinaMap from "../page/chinaMap/index";
 import UseMemo from "../page/useMemo/index";
 import UseCallback from "../page/useCallback/index";
-import Memo from "../page/memoParent/index";
+import Memo from "../page/memo/index";
 import HeightEchart from "../page/heightEchart/index";
 import FormBox from "../page/form/index";
 import PromiseTest from "../page/promise/index";
@@ -41,9 +40,6 @@ function Header() {
 				<ul>
 					<li>
 						<Link to="/echart">echart的简单应用</Link>
-					</li>
-					<li>
-						<Link to="/map">echart实现中国地图并实现图层叠加</Link>
 					</li>
 					<li>
 						<Link to="/heightEchart">echart的高级应用</Link>
@@ -109,9 +105,7 @@ function Header() {
 				<Link to="/counter">react-redux的应用和异步流</Link>
 			</li>
 			<li>
-				<Link to="/optimize">
-					性能优化之shouldComponentUpdate, 手动处理何种情况渲染子组件, 子组件得是继承React.Component
-				</Link>
+				<Link to="/optimize">性能优化之shouldComponentUpdate, 手动处理何种情况渲染子组件</Link>
 			</li>
 			<li>
 				<Link to="/memo">性能优化之React.memo，相当于函数组件里的shouldComponentUpdate</Link>
@@ -218,7 +212,6 @@ function App({ value, name }) {
 						<Route path="/counter" component={Counter} />
 						<Route path="/optimize" component={Optimize} />
 						<Route path="/echart" component={EchartBox} />
-						<Route path="/map" component={ChinaMap} />
 						<Route path="/useMemo" component={UseMemo} />
 						<Route path="/useCallback" component={UseCallback} />
 						<Route path="/memo" component={Memo} />

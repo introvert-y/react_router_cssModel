@@ -2,19 +2,21 @@ import React, { useState, useCallback } from "react";
 
 function Page() {
 	const [count, setCount] = useState(1);
-	function calculate(count) {
-		let sum = 0;
-		for (let i = 0; i < count * 100; i += 1) {
-			sum += i;
-		}
-		return sum;
-	}
-	const expensive = useCallback(calculate(count), [count]);
+	const expensive = useCallback(
+		count => {
+			let sum = 0;
+			for (let i = 0; i < count * 100; i += 1) {
+				sum += i;
+			}
+			return sum;
+		},
+		[count]
+	);
 
 	return (
 		<div>
 			<h4>
-				{count}-{calculate(count)}
+				{count}-{expensive(count)}
 			</h4>
 			<div>
 				<button type="button" onClick={() => setCount(count + 1)}>
