@@ -7,6 +7,7 @@ function Page() {
 		for (let i = 0; i < count * 100; i += 1) {
 			sum += i;
 		}
+		console.count();
 		return sum;
 	}, [count]);
 
@@ -14,16 +15,20 @@ function Page() {
 		<div style={{ marginLeft: 40, width: 500 }}>
 			推荐阅读：https://www.jianshu.com/p/9af1c9c3a02b
 			<h3>
-				记住，传入 useMemo 的函数会在渲染期间执行。请不要在这个函数内部执行与渲染无关的操作，诸如副作用这类的操作属于
-				useEffect 的适用范畴，而不是 useMemo。 如果没有提供依赖项数组，useMemo 在每次渲染时都会计算新的值.
+				遵循最佳实践，应该在纯函数上实现memoization。纯函数输入什么就返回什么，不存在副作用。
+				记住这个是以空间换速度，所以最好确定你是否值得那么做，有些场景很有必要使用。
+				在处理递归函数时，Memoization最有效，使用案例：斐波那契系列(Fibonacci)
 				<br />
 			</h3>
 			<h4>
 				{count}-{expensive}
 			</h4>
 			<div>
-				<button type="button" onClick={() => setCount(count + 1)}>
-					add
+				<button type="button" style={{ marginRight: 20 }} onClick={() => setCount(count + 1)}>
+					添加
+				</button>
+				<button type="button" onClick={() => setCount(count - 1)}>
+					减少
 				</button>
 			</div>
 		</div>
