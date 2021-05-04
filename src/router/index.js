@@ -111,7 +111,7 @@ function Header() {
 				<Link to="/memo">性能优化之React.memo，相当于函数组件里的shouldComponentUpdate</Link>
 			</li>
 			<li>
-				<Link to="/useMemo">hook之useMemo，缓存组件</Link>
+				<Link to="/useMemo">hook之useMemo</Link>
 			</li>
 			<li>
 				<Link to="/useCallback">hook之useCallback，useCallback(fn, deps) 相当于 useMemo(() =&gt; fn, deps)</Link>

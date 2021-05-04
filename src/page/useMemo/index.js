@@ -1,38 +1,27 @@
 import React, { useState, useMemo } from "react";
 
-function Page() {
-	const [count, setCount] = useState(1);
+export default function UseMemoPage(props) {
+	const [count, setCount] = useState(0);
 	const expensive = useMemo(() => {
+		console.log("compute");
 		let sum = 0;
-		for (let i = 0; i < count * 100; i += 1) {
+		for (let i = 0; i <= count; i += 1) {
 			sum += i;
 		}
-		console.count();
 		return sum;
+		// 只有count变化，这⾥里里才重新执⾏行行
 	}, [count]);
-
+	const [value, setValue] = useState("");
 	return (
-		<div style={{ marginLeft: 40, width: 500 }}>
-			推荐阅读：https://www.jianshu.com/p/9af1c9c3a02b
-			<h3>
-				遵循最佳实践，应该在纯函数上实现memoization。纯函数输入什么就返回什么，不存在副作用。
-				记住这个是以空间换速度，所以最好确定你是否值得那么做，有些场景很有必要使用。
-				在处理递归函数时，Memoization最有效，使用案例：斐波那契系列(Fibonacci)
-				<br />
-			</h3>
-			<h4>
-				{count}-{expensive}
-			</h4>
-			<div>
-				<button type="button" style={{ marginRight: 20 }} onClick={() => setCount(count + 1)}>
-					添加
-				</button>
-				<button type="button" onClick={() => setCount(count - 1)}>
-					减少
-				</button>
-			</div>
+		<div>
+			<h3>UseMemo返回一个值</h3>
+			<h4>推荐阅读：https://www.jianshu.com/p/9af1c9c3a02b</h4>
+			<p>expensive:{expensive}</p>
+			<p>{count}</p>
+			<button type="button" onClick={() => setCount(count + 1)}>
+				add
+			</button>
+			<input value={value} onChange={event => setValue(event.target.value)} />
 		</div>
 	);
 }
-
-export default Page;
