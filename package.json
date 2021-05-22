@@ -78,7 +78,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "npm run lint && pretty-quick --staged"
+			"pre-commit": "pretty-quick --staged && npm run lint"
 		}
 	},
 	"scripts": {
@@ -86,7 +86,7 @@
 		"build": "node scripts/build.js",
 		"test": "node scripts/test.js",
 		"lint": "eslint src --fix",
-		"format": "pretty-quick --staged && npm run lint"
+		"format": "npm run lint && pretty-quick --staged"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
