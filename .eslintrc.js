@@ -14,7 +14,7 @@ module.exports = {
 		"react/no-array-index-key": "off",
 		"react/jsx-props-no-spreading": "off",
 		"no-console": "off",
-		quotes: ["error", "double"],
+		quotes: ["error", "single"],
 	},
 	env: {
 		browser: true,
