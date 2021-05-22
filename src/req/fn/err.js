@@ -2,7 +2,7 @@ import { Modal, message } from "antd";
 import history from "../../history";
 
 const CODE = {
-	sessionExpired: 3000,
+	sessionExpired: 3000
 };
 
 /**
@@ -57,7 +57,7 @@ function show(err) {
 	}
 	return Modal.warning({
 		title: "提示",
-		content: msg,
+		content: msg
 	});
 }
 
@@ -67,7 +67,7 @@ export default {
 			msgPicker,
 			show,
 			goLogin,
-			CODE,
+			CODE
 		};
-	},
+	}
 };

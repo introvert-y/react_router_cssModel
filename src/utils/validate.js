@@ -17,7 +17,7 @@ function checkFloatNum(n, limit) {
 function validateDate(val) {
 	if (!val) {
 		return {
-			msg: "请选择日期",
+			msg: "请选择日期"
 		};
 	}
 
@@ -32,25 +32,25 @@ function validateSalary(val) {
 
 	if (!val) {
 		return {
-			msg: "请输入日薪",
+			msg: "请输入日薪"
 		};
 	}
 
 	if (!s && s !== 0) {
 		return {
-			msg: "日薪格式错误",
+			msg: "日薪格式错误"
 		};
 	}
 
 	if (s <= 0) {
 		return {
-			msg: "日薪必须大于0",
+			msg: "日薪必须大于0"
 		};
 	}
 
 	if (!checkFloatNum(s, 1)) {
 		return {
-			msg: "日薪最多保留一位小数",
+			msg: "日薪最多保留一位小数"
 		};
 	}
 
@@ -65,31 +65,31 @@ function validateWorkingTime(val) {
 
 	if (!val) {
 		return {
-			msg: "请输入记工数",
+			msg: "请输入记工数"
 		};
 	}
 
 	if (!count && count !== 0) {
 		return {
-			msg: "记工数格式错误",
+			msg: "记工数格式错误"
 		};
 	}
 
 	if (count <= 0) {
 		return {
-			msg: "记工数必须大于0",
+			msg: "记工数必须大于0"
 		};
 	}
 
 	if (count > 10) {
 		return {
-			msg: "记工数不能大于10",
+			msg: "记工数不能大于10"
 		};
 	}
 
 	if (!checkFloatNum(count, 1)) {
 		return {
-			msg: "记工最多保留一位小数",
+			msg: "记工最多保留一位小数"
 		};
 	}
 
@@ -102,7 +102,7 @@ function validateWorkingTime(val) {
 function validateRemark(val, label = "备注") {
 	if (val.length > 30) {
 		return {
-			msg: `${label}不能超过30字`,
+			msg: `${label}不能超过30字`
 		};
 	}
 
@@ -117,25 +117,25 @@ function validateReceive(val) {
 
 	if (!val) {
 		return {
-			msg: "请输入金额",
+			msg: "请输入金额"
 		};
 	}
 
 	if (!s && s !== 0) {
 		return {
-			msg: "金额格式错误",
+			msg: "金额格式错误"
 		};
 	}
 
 	if (s <= 0) {
 		return {
-			msg: "金额必须大于0",
+			msg: "金额必须大于0"
 		};
 	}
 
 	if (!checkFloatNum(s, 1)) {
 		return {
-			msg: "金额最多保留一位小数",
+			msg: "金额最多保留一位小数"
 		};
 	}
 
@@ -150,25 +150,25 @@ function validateBorrow(val) {
 
 	if (!val) {
 		return {
-			msg: "请输入金额",
+			msg: "请输入金额"
 		};
 	}
 
 	if (!s && s !== 0) {
 		return {
-			msg: "金额格式错误",
+			msg: "金额格式错误"
 		};
 	}
 
 	if (s <= 0) {
 		return {
-			msg: "金额必须大于0",
+			msg: "金额必须大于0"
 		};
 	}
 
 	if (!checkFloatNum(s, 1)) {
 		return {
-			msg: "金额最多保留一位小数",
+			msg: "金额最多保留一位小数"
 		};
 	}
 
@@ -181,13 +181,13 @@ function validateBorrow(val) {
 function validateUserName(val, label = "姓名") {
 	if (!/\S/.test(val)) {
 		return {
-			msg: `请填写${label}`,
+			msg: `请填写${label}`
 		};
 	}
 
 	if (val.length > 20) {
 		return {
-			msg: `${label}长度不能大于20`,
+			msg: `${label}长度不能大于20`
 		};
 	}
 
@@ -200,13 +200,13 @@ function validateUserName(val, label = "姓名") {
 function validateGroupName(val) {
 	if (!/\S/.test(val)) {
 		return {
-			msg: "请填写考勤规则名",
+			msg: "请填写考勤规则名"
 		};
 	}
 
 	if (val.length > 20) {
 		return {
-			msg: "考勤规则名长度不能大于20",
+			msg: "考勤规则名长度不能大于20"
 		};
 	}
 
@@ -219,13 +219,13 @@ function validateGroupName(val) {
 function validateTeamName(val) {
 	if (!/\S/.test(val)) {
 		return {
-			msg: "请填写班组名",
+			msg: "请填写班组名"
 		};
 	}
 
 	if (val.length > 20) {
 		return {
-			msg: "班组名长度不能大于20",
+			msg: "班组名长度不能大于20"
 		};
 	}
 
@@ -238,13 +238,13 @@ function validateTeamName(val) {
 function validateProjectName(val) {
 	if (!/\S/.test(val)) {
 		return {
-			msg: "请填写项目名",
+			msg: "请填写项目名"
 		};
 	}
 
 	if (val.length > 30) {
 		return {
-			msg: "项目名长度不能大于30",
+			msg: "项目名长度不能大于30"
 		};
 	}
 
@@ -257,7 +257,7 @@ function validateProjectName(val) {
 function validateWorkType(val) {
 	if (!val) {
 		return {
-			msg: "请选择工种",
+			msg: "请选择工种"
 		};
 	}
 
@@ -270,13 +270,13 @@ function validateWorkType(val) {
 function validatePhone(val, label = "手机号码") {
 	if (val === "") {
 		return {
-			msg: `请填写${label}`,
+			msg: `请填写${label}`
 		};
 	}
 
 	if (!/^\d{11}$/.test(val)) {
 		return {
-			msg: `${label}格式错误`,
+			msg: `${label}格式错误`
 		};
 	}
 
@@ -289,13 +289,13 @@ function validatePhone(val, label = "手机号码") {
 function validateBankCardNumber(val) {
 	if (val === "") {
 		return {
-			msg: "请填写银行卡帐号",
+			msg: "请填写银行卡帐号"
 		};
 	}
 
 	if (!/^\d{11,}$/.test(val)) {
 		return {
-			msg: "银行卡帐号格式错误",
+			msg: "银行卡帐号格式错误"
 		};
 	}
 
@@ -308,7 +308,7 @@ function validateBankCardNumber(val) {
 function validatePhoneCode(val) {
 	if (val === "") {
 		return {
-			msg: "请填写验证码",
+			msg: "请填写验证码"
 		};
 	}
 
@@ -321,7 +321,7 @@ function validatePhoneCode(val) {
 function validateUserAvt(val) {
 	if (!val) {
 		return {
-			msg: "请选择头像",
+			msg: "请选择头像"
 		};
 	}
 
@@ -334,12 +334,12 @@ function validateUserAvt(val) {
 function validateWorkerCode(val, label = "工号") {
 	if (!val) {
 		return {
-			msg: `请输入${label}`,
+			msg: `请输入${label}`
 		};
 	}
 	if (!/^\d+$/.test(val)) {
 		return {
-			msg: `${label}格式错误`,
+			msg: `${label}格式错误`
 		};
 	}
 
@@ -352,19 +352,19 @@ function validateWorkerCode(val, label = "工号") {
 function validateRealNamePics(pics) {
 	if (!pics.front) {
 		return {
-			msg: "请拍摄身份证正面照",
+			msg: "请拍摄身份证正面照"
 		};
 	}
 
 	if (!pics.back) {
 		return {
-			msg: "请拍摄身份证背面照",
+			msg: "请拍摄身份证背面照"
 		};
 	}
 
 	if (!pics.face) {
 		return {
-			msg: "请拍摄正脸照",
+			msg: "请拍摄正脸照"
 		};
 	}
 
@@ -377,13 +377,13 @@ function validateRealNamePics(pics) {
 function validateCompanyName(val, label = "公司名") {
 	if (!/\S/.test(val)) {
 		return {
-			msg: `请填写${label}`,
+			msg: `请填写${label}`
 		};
 	}
 
 	if (val.length > 30) {
 		return {
-			msg: `${label}长度不能大于30`,
+			msg: `${label}长度不能大于30`
 		};
 	}
 
@@ -396,13 +396,13 @@ function validateCompanyName(val, label = "公司名") {
 function validateAddress(val, label = "地址") {
 	if (!/\S/.test(val)) {
 		return {
-			msg: `请填写${label}`,
+			msg: `请填写${label}`
 		};
 	}
 
 	if (val.length > 100) {
 		return {
-			msg: `${label}长度不能大于100`,
+			msg: `${label}长度不能大于100`
 		};
 	}
 
@@ -415,13 +415,13 @@ function validateAddress(val, label = "地址") {
 function validateIdCard(val, label = "身份证号") {
 	if (!val || !/\S/.test(val)) {
 		return {
-			msg: `请输入${label}`,
+			msg: `请输入${label}`
 		};
 	}
 
 	if (!/^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/.test(val)) {
 		return {
-			msg: `${label}格式错误`,
+			msg: `${label}格式错误`
 		};
 	}
 
@@ -450,7 +450,7 @@ const fns = {
 	projectName: validateProjectName, // 项目名
 	companyName: validateCompanyName, // 校验公司名
 	address: validateAddress, // 校验地址
-	idCard: validateIdCard, // 校验身份证
+	idCard: validateIdCard // 校验身份证
 };
 
 /**
@@ -472,7 +472,7 @@ function validate(options) {
 			}
 		} else {
 			return {
-				msg: `找不到校验函数：${key}`,
+				msg: `找不到校验函数：${key}`
 			};
 		}
 	}
@@ -481,5 +481,5 @@ function validate(options) {
 }
 
 module.exports = {
-	validate,
+	validate
 };

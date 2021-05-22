@@ -66,5 +66,5 @@ export default {
 		req.cachify = cachifyPlugin(req);
 		req.clearCache = clear;
 		req.clearAllCache = clearAll;
-	},
+	}
 };

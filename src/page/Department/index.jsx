@@ -33,12 +33,12 @@ const mockList = [
 	{
 		departmentId: "a51f03833b5611eb8d7b52540023cd6c",
 		departmentName: "材料部",
-		childDepartment: [],
+		childDepartment: []
 	},
 	{
 		departmentId: "bde697b73b5611eb8d7b52540023cd6c",
 		departmentName: "安全部",
-		childDepartment: [],
+		childDepartment: []
 	},
 	{
 		departmentId: "e6fecca33b5611eb8d7b52540023cd6c",
@@ -47,15 +47,15 @@ const mockList = [
 			{
 				departmentId: "0f2f01653b5711eb8d7b52540023cd6c",
 				departmentName: "设计研究院",
-				childDepartment: [],
+				childDepartment: []
 			},
 			{
 				departmentId: "aca7d23c3b8a11eb8d7b52540023cd6c",
 				departmentName: "交互设计部",
-				childDepartment: [],
-			},
-		],
-	},
+				childDepartment: []
+			}
+		]
+	}
 ];
 const mockCountMap = {
 	"0f2f01653b5711eb8d7b52540023cd6c": 2,
@@ -65,7 +65,7 @@ const mockCountMap = {
 	e6fecca33b5611eb8d7b52540023cd6c: 5,
 	e805ea123ec911eb8d7b52540023cd6c: 1,
 	ed4e7fd13b6211eb8d7b52540023cd6c: 4,
-	f4098c183b5611eb8d7b52540023cd6c: 3,
+	f4098c183b5611eb8d7b52540023cd6c: 3
 };
 function Page({ status, onCloseFn }) {
 	const [list, setList] = useState([]);
@@ -115,7 +115,7 @@ function Page({ status, onCloseFn }) {
 }
 Page.propTypes = {
 	status: PropTypes.bool.isRequired,
-	onCloseFn: PropTypes.func.isRequired,
+	onCloseFn: PropTypes.func.isRequired
 };
 
 export default Page;

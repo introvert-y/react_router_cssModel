@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 
-export default function UseMemoPage(props) {
+export default function UseMemoPage() {
 	const [count, setCount] = useState(0);
 	const expensive = useMemo(() => {
 		console.log("compute");
@@ -16,7 +16,10 @@ export default function UseMemoPage(props) {
 		<div>
 			<h3>UseMemo返回一个值</h3>
 			<h4>推荐阅读：https://www.jianshu.com/p/9af1c9c3a02b</h4>
-			<p>expensive:{expensive}</p>
+			<p>
+				expensive:
+				{expensive}
+			</p>
 			<p>{count}</p>
 			<button type="button" onClick={() => setCount(count + 1)}>
 				add

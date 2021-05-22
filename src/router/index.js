@@ -20,7 +20,7 @@ import hookTest from "../page/hookTest/index";
 
 const mapStateToProps = state => ({
 	value: state.count,
-	name: state.name,
+	name: state.name
 });
 /**
  * 解决ant-design的路由跳转，modal和message组件不关闭问题
@@ -58,9 +58,9 @@ function Header() {
 									time: "2",
 									obj: JSON.stringify({
 										name: "IG",
-										sex: "man",
-									}),
-								},
+										sex: "man"
+									})
+								}
 							}}
 						>
 							路由query传参
@@ -71,7 +71,7 @@ function Header() {
 							to={`/link?data=${encodeURIComponent(
 								JSON.stringify({
 									name: "IG",
-									sex: "man",
+									sex: "man"
 								})
 							)}`}
 						>
@@ -87,9 +87,9 @@ function Header() {
 									year: "18",
 									obj: JSON.stringify({
 										name: "IG",
-										sex: "man",
-									}),
-								},
+										sex: "man"
+									})
+								}
 							}}
 						>
 							路由params传参
@@ -137,7 +137,7 @@ function RouteLink({ location }) {
 	const data = JSON.parse(new URLSearchParams(location.search).get("data"));
 	return Object.keys(data).map(item => (
 		<div key={item}>
-			{item} : {data[item]}
+			{item} :{data[item]}
 		</div>
 	));
 }
@@ -155,7 +155,10 @@ function RouteQuery({ location }) {
 function RouteParams({ location }) {
 	console.log("params传参", location);
 	return (
-		<h2>试一下: {location.params ? `name为${location.params.name}, year为${location.params.year}` : "No Click"}</h2>
+		<h2>
+			试一下:
+			{location.params ? `name为${location.params.name}, year为${location.params.year}` : "No Click"}
+		</h2>
 	);
 }
 
@@ -197,8 +200,14 @@ function App({ value, name }) {
 		<>
 			<div style={{ paddingLeft: 50, fontSize: 20 }}>
 				<span>全局状态显示：</span>
-				<span>计数器：{value}</span>
-				<span style={{ paddingLeft: 50 }}>name:{name}</span>
+				<span>
+					计数器：
+					{value}
+				</span>
+				<span style={{ paddingLeft: 50 }}>
+					name:
+					{name}
+				</span>
 			</div>
 			<HashRouter>
 				<div style={{ marginLeft: 40 }}>
@@ -227,18 +236,18 @@ function App({ value, name }) {
 }
 App.propTypes = {
 	name: PropTypes.string.isRequired,
-	value: PropTypes.number.isRequired,
+	value: PropTypes.number.isRequired
 };
 RouteParams.propTypes = {
-	location: PropTypes.object.isRequired,
+	location: PropTypes.object.isRequired
 };
 SonQuery.propTypes = {
-	location: PropTypes.object.isRequired,
+	location: PropTypes.object.isRequired
 };
 RouteQuery.propTypes = {
-	location: PropTypes.object.isRequired,
+	location: PropTypes.object.isRequired
 };
 QueryChildren.propTypes = {
-	match: PropTypes.object.isRequired,
+	match: PropTypes.object.isRequired
 };
 export default connect(mapStateToProps)(App);

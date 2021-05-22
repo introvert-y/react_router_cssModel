@@ -28,7 +28,7 @@ function wrapper(api) {
 			data: originData || newData,
 			type: "json",
 			headers,
-			contentType: "application/json",
+			contentType: "application/json"
 		};
 		return reqwest(options);
 	};

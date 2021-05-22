@@ -3,12 +3,12 @@ const baseUrlTable = {
 	local: "",
 	dev: "",
 	pre: "",
-	release: "https://labor.emodor.com",
+	release: "https://labor.emodor.com"
 };
 
 export const baseUrl = baseUrlTable.local;
 
 export default {
 	baseUrl,
-	uploadAction: `${baseUrl}/eobi-api/api/file/upload`,
+	uploadAction: `${baseUrl}/eobi-api/api/file/upload`
 };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { Radio, Button } from "antd";
+import { Radio } from "antd";
 // import { CSSTransition } from "react-transition-group";
 
 const StyledDiv = styled.div`
@@ -53,7 +53,7 @@ class Son extends React.Component {
 	}
 }
 Son.propTypes = {
-	color: PropTypes.string.isRequired,
+	color: PropTypes.string.isRequired
 };
 
 export default Page;

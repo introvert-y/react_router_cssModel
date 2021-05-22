@@ -29,7 +29,7 @@ function Son({ name }) {
 }
 
 Son.propTypes = {
-	name: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired
 };
 
 const SonComponent = React.memo(Son);

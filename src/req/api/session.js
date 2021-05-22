@@ -7,7 +7,7 @@
 export function setCookie(cName, value, expiredays) {
 	const cookies = {
 		[cName]: escape(value),
-		path: "/",
+		path: "/"
 	};
 	if (expiredays) {
 		const exdate = new Date();
@@ -58,5 +58,5 @@ function setSession(val) {
 
 export default {
 	get: getSession,
-	set: setSession,
+	set: setSession
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 function useWinSize() {
 	const [size, setSize] = useState({});
@@ -6,7 +6,7 @@ function useWinSize() {
 	const onResize = useCallback(() => {
 		setSize({
 			width: document.documentElement.clientWidth,
-			height: document.documentElement.clientHeight,
+			height: document.documentElement.clientHeight
 		});
 	}, []);
 
