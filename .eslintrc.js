@@ -15,7 +15,6 @@ module.exports = {
 		"react/jsx-props-no-spreading": "off",
 		"no-console": "off",
 		semi: ["error", "always"],
-		quotes: ["error", "single"],
 	},
 	env: {
 		browser: true,
