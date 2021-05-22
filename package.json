@@ -85,7 +85,7 @@
 		"start": "node scripts/start.js",
 		"build": "node scripts/build.js",
 		"test": "node scripts/test.js",
-		"lint": "eslint src",
+		"lint": "eslint src --fix",
 		"format": "npm run lint && pretty-quick --staged"
 	},
 	"eslintConfig": {

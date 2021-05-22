@@ -32,7 +32,13 @@ function Page({ onIncreaseClick, onDecreaseClick, changeName }) {
 				react-redux的异步流实现，是通过拦截派发给reducer的事件实现的，
 				例如派发了一个改变全局状态name的事件，通过拦截执行其他操作，这里用定时器3秒模拟请求操作，请求成功后再派发改变值的事件.这个过程也可以当做获取全局通知消息的过程。
 			</p>
-			<h3 style={{ marginBottom: 10 }}>可打开控制台查看操作日志</h3>
+			<h3
+				style={{
+					marginBottom: 10
+				}}
+			>
+				可打开控制台查看操作日志
+			</h3>
 			<button type="button" onClick={onIncreaseClick}>
 				+
 			</button>

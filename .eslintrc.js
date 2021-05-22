@@ -1,8 +1,7 @@
 module.exports = {
-	extends: ["airbnb"],
-	// , "plugin:prettier/recommended"
+	extends: ["airbnb", "plugin:react/recommended"],
 	rules: {
-		"react/jsx-indent": ["error", 2],
+		"react/jsx-indent": [2, 2, { checkAttributes: true }],
 		"no-tabs": ["error", { allowIndentationTabs: true }],
 		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
 		"react/jsx-filename-extension": "off",
